@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-    content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
-  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+    content="Building a Winning Team: Selecting Source Model Ensembles using a Submodular Transferability Estimation Approach">
+  <meta name="keywords" content="Ensemble, Transferability, Submodular">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Building a Winning Team: Selecting Source Model Ensembles using a Submodular Transferability Estimation
     Approach</title>
@@ -32,7 +32,7 @@
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" href="./static/images/favicon.svg">
+  <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
@@ -40,7 +40,8 @@
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
 
 </head>
 
@@ -92,6 +93,7 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">ICCV 2023</h1><br>
             <h1 class="title is-1 publication-title">Building a Winning Team: Selecting Source Model Ensembles using a
               Submodular Transferability Estimation Approach</h1>
             <div class="is-size-5 publication-authors">
@@ -294,14 +296,20 @@
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
           <h2 class="title is-3">Task Objective</h2>
-          <div class="content has-text-justified">
+          <div class="content has-text-centered">
             <p>
               <img src="static\images\OSBORN-FINAL-1.png" alt="Image Description">
             </p><br>
-            Given a source pool containing M datasets accompanied by a pre-trained model each and a target dataset,
-            OSBORN selects a subset of models i.e., an Ensemble such that the Domain Difference, Task Difference are low
-            and the Model Cohesion is high by employing a submodular approach. Please refer to Section 1 of the paper
-            for more details.
+            Figure 1: Illustration of the objective and problem setting of our proposed metric.
+          </div>
+          <div class="content has-text-justified">
+            <p>
+              Given a source pool containing M datasets accompanied by a pre-trained model each and a target dataset,
+              OSBORN selects a subset of models i.e., an Ensemble such that the Domain Difference, Task Difference are
+              low
+              and the Model Cohesion is high by employing a submodular approach. Please refer to Section 1 of the paper
+              for more details.
+            </p>
           </div>
         </div>
       </div>
@@ -313,11 +321,22 @@
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
           <h2 class="title is-3">Method</h2>
+          <div class="content has-text-centered">
+            <p>
+              <img src="static\images\OSBORN-Page-12.png" alt="Image Description" width="600">
+            </p><br>
+            Figure 2: Overview of our method for estimating the transferability for ensembles.
+          </div>
           <div class="content has-text-justified">
             <p>
-              <img src="static\images\OSBORN-Page-12.png" alt="Image Description">
-            </p><br>
-            Overview of our method for estimating the transferability for ensembles.
+              We define OSBORN for a subset of models \(M_e\) of our source pool \(M\) as follows. Our metric
+              collectively
+              accounts for domain difference, task difference and model cohesion. A model ensemble that obtains a low
+              OSBORN score will have better transferability to a target dataset. Our experiments show that a simple
+              combination of these three quantities (with no weighting co-efficients) outperforms existing methods in
+              all our experiments. In our ablation studies and analysis, we study the contribution of each OSBORN
+              component as well as the effect of weighting each component differently.
+            </p>
           </div>
         </div>
       </div>
@@ -336,7 +355,9 @@
             </p>
             <p>
               <!-- Placeholder for Table 3 -->
-              Table 3: Results for Image Classification using fully-supervised learning.
+              Table 1: Comparison of different ensemble transferability estimation metrics for fully-supervised models
+              (classification tasks). The best results are indicated in bold. Note: MS: MS-LEEP, E: E-LEEP, Ours:
+              OSBORN.
             </p>
 
             <h3 class="subtitle">Image Classification using self-supervised learning</h3>
@@ -345,7 +366,9 @@
             </p>
             <p>
               <!-- Placeholder for Table 4 -->
-              Table 4: Results for Image Classification using self-supervised learning.
+              Table 2: Comparison of different ensemble transferability estimation metrics for self-supervised
+              pre-trained models (classification tasks). The best results are indicated in bold. Note: MS: MS-LEEP, E:
+              E-LEEP and Ours: OSBORN.
             </p>
           </div>
         </div>
@@ -355,6 +378,7 @@
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
           <div class="content has-text-centered">
+            <br>
             <h3 class="subtitle">t-SNE Plots for Visualization</h3>
             <p>
               <img src="static\images\tSNE_Plots_FSL (1).png" alt="Image Description">
@@ -372,10 +396,10 @@
   </section>
 
 
-  <section class="section">
+  <!-- <section class="section">
     <div class="container is-max-desktop">
 
-      <div class="columns is-centered">
+      <div class="columns is-centered"> -->
 
 
         <!-- Visual Effects. -->
@@ -467,9 +491,9 @@
 
 
         <!-- Concurrent Work. -->
-        <div class="columns is-centered">
+        <!-- <div class="columns is-centered">
           <div class="column is-full-width">
-            <h2 class="title is-3">Related Links</h2>
+            <h2 class="title is-3">Related Links</h2> -->
 
             <!-- <div class="content has-text-justified">
             <p>
@@ -496,12 +520,12 @@
                 href="https://github.com/yenchenlin/awesome-NeRF">Yen-Chen Lin's curated list of NeRF papers</a>.
             </p>
           </div> -->
-          </div>
-        </div>
+          <!-- </div>
+        </div> -->
         <!--/ Concurrent Work. -->
 
-      </div>
-  </section>
+      <!-- </div>
+  </section> -->
 
 
   <section class="section" id="BibTeX">
@@ -537,11 +561,7 @@
                 Commons Attribution-ShareAlike 4.0 International License</a>.
             </p>
             <p>
-              This means you are free to borrow the <a href="https://github.com/nerfies/nerfies.github.io">source
-                code</a> of this website,
-              we just ask that you link back to this page in the footer.
-              Please remember to remove the analytics code included in the header of the website which
-              you do not want on your website.
+              The source code for the website is borrowed from this <a href="https://github.com/nerfies/nerfies.github.io">repository</a>.
             </p>
           </div>
         </div>
